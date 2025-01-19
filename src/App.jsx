@@ -1,8 +1,12 @@
 import "./App.css";
-import OculusWebsite from "./components/OculusWebsite";
+import Home from "./pages/Home";
 
 function App() {
-  return <OculusWebsite />;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 }
 
 export default App;
