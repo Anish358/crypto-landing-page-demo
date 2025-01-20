@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Features from "../components/Features";
 import Statistics from "../components/Statistics";
 import Footer from "../components/Footer";
+import Teaser from "../components/Teaser";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <StackedCards />
       <Features />
       <Statistics />
+      <Teaser />
       <Footer />
     </div>
   );

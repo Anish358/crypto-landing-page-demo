@@ -7,32 +7,26 @@ const Links = {
 const cards = [
   {
     id: 1,
-    sub: "Profiles",
-    content: "Your personalized toolkit",
+    bot: "/oculus-pro.png",
+    text: "Pro Bot",
     bgColor: "bg-[#110A2B]",
   },
   {
     id: 2,
-    sub: "Signals",
-    content: "Vigilant eye on the Ethereum and Solana mainnets",
+    bot: "/oculus-gold.png",
+    text: "Gold Bot",
     bgColor: "bg-[#110A2B]",
   },
   {
     id: 3,
-    sub: "Simulator",
-    content: "Simulating Auto Buys is simple",
-    bgColor: "bg-[#110A2B]",
-  },
-  {
-    id: 4,
-    sub: "Support",
-    content: "Now its 24/7 support",
+    bot: "/oculus-premium.png",
+    text: "Premium Bot",
     bgColor: "bg-[#110A2B]",
   },
 ];
 
 function StackedCards() {
-  const [awayCards, setAwayCards] = useState([]);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
   const stackAreaRef = useRef(null);
 
   useEffect(() => {
@@ -43,11 +37,7 @@ function StackedCards() {
       const topVal = stackAreaRef.current.getBoundingClientRect().top;
       const index = Math.floor(-1 * (topVal / distance + 1));
 
-      const newAwayCards = cards
-        .filter((_, i) => i <= index)
-        .map((card) => card.id);
-
-      setAwayCards(newAwayCards);
+      setActiveCardIndex(Math.min(Math.max(index, 0), cards.length - 1));
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -85,23 +75,21 @@ function StackedCards() {
             className={`
               w-[350px] h-[350px] rounded-[25px] mb-2.5 absolute 
               top-[calc(50%-175px)] left-[calc(50%-175px)]
-              transition-transform duration-500 ease-in-out p-9
-              flex justify-between flex-col origin-bottom-left
-              backdrop-blur-sm border border-[#00f2ff]/20
-              ${card.bgColor}
+              transition-all duration-700 ease-in-out p-9
+              flex justify-between flex-col items-center
+              ${index < activeCardIndex ? "opacity-0 translate-y-[-100vh]" : ""}
+              ${index > activeCardIndex ? "opacity-0" : "opacity-100"}
             `}
             style={{
-              transform: awayCards.includes(card.id)
-                ? "translateY(-120vh) rotate(-48deg)"
-                : `rotate(${-10 * index}deg)`,
               zIndex: cards.length - index,
+              pointerEvents: index === activeCardIndex ? "auto" : "none",
             }}
           >
-            <div className="font-poppins text-xl font-bold text-white">
-              {card.sub}
-            </div>
             <div className="font-poppins text-[44px] font-bold leading-[54px] text-white">
-              {card.content}
+              {card.text}
+            </div>
+            <div className="font-poppins text-xl font-bold text-white">
+              <img src={card.bot} alt="" />
             </div>
           </div>
         ))}
