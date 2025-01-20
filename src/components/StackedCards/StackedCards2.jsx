@@ -8,20 +8,20 @@ const Links = {
 const cards = [
   {
     id: 1,
+    bot: "/oculus-basic.png",
+    text: "Premium Bot",
+    bgColor: "bg-[#110A2B]",
+  },
+  {
+    id: 2,
     bot: "/oculus-pro.png",
     text: "Pro Bot",
     bgColor: "bg-[#110A2B]",
   },
   {
-    id: 2,
+    id: 3,
     bot: "/oculus-gold.png",
     text: "Gold Bot",
-    bgColor: "bg-[#110A2B]",
-  },
-  {
-    id: 3,
-    bot: "/oculus-premium.png",
-    text: "Premium Bot",
     bgColor: "bg-[#110A2B]",
   },
 ];
@@ -46,7 +46,8 @@ function StackedCards() {
   }, []);
 
   return (
-    <div
+    <section
+      id="Bots"
       ref={stackAreaRef}
       className="w-full h-[300vh] relative bg-[#2d1b55]/10 flex"
     >
@@ -94,8 +95,8 @@ function StackedCards() {
           <div
             key={card.id}
             className={`
-              w-[350px] h-[350px] rounded-[25px] mb-2.5 absolute 
-              top-[calc(50%-175px)] left-[calc(50%-175px)]
+              w-[600px] h-[600px] rounded-[25px] mb-2.5 absolute 
+              top-[calc(50%-300px)] left-[calc(50%-350px)]
               transition-all duration-700 ease-in-out p-9
               flex justify-between flex-col items-center
               ${index < activeCardIndex ? "opacity-0 translate-y-[-100vh]" : ""}
@@ -106,16 +107,13 @@ function StackedCards() {
               pointerEvents: index === activeCardIndex ? "auto" : "none",
             }}
           >
-            <div className="font-poppins text-[44px] font-bold leading-[54px] text-white">
-              {card.text}
-            </div>
             <div className="font-poppins text-xl font-bold text-white">
               <img src={card.bot} alt="" />
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

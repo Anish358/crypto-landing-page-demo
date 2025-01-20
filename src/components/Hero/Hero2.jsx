@@ -8,7 +8,10 @@ const CONFIG = {
 
 const Hero2 = () => {
   return (
-    <div className="relative min-h-screen bg-[#2d1b55]/10 flex items-center overflow-hidden">
+    <section
+      id="Hero"
+      className="relative min-h-screen bg-[#2d1b55]/10 flex items-center overflow-hidden"
+    >
       <div className="container px-4 relative z-10 flex flex-col md:flex-row mx-auto items-center justify-between">
         <motion.div
           initial={{ opacity: 0, x: 0 }}
@@ -56,7 +59,7 @@ const Hero2 = () => {
           />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -12,7 +12,10 @@ const Links = {
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen bg-[#2d1b55]/10 flex items-center overflow-hidden">
+    <section
+      id="Hero"
+      className="relative min-h-screen bg-[#2d1b55]/10 flex items-center overflow-hidden"
+    >
       <motion.div
         initial={{ opacity: 0, x: -100, y: -100 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
@@ -77,7 +80,7 @@ const Hero = () => {
           />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

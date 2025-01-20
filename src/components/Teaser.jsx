@@ -16,7 +16,7 @@ const Teaser = () => {
   }, []);
 
   return (
-    <section className="py-24 relative bg-[#2d1b55]/10">
+    <section id="Teaser" className="py-24 relative bg-[#2d1b55]/10">
       <div className="container mx-auto px-4">
         <h2 className="text-6xl font-bold text-center mb-12 text-WHITE tracking-wider">
           TEASER

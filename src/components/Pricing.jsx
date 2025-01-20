@@ -89,7 +89,7 @@ function Pricing() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#2d1b55]/10 py-16 px-4">
+    <section id="Pricing" className="min-h-screen bg-[#2d1b55]/10 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
@@ -107,7 +107,7 @@ function Pricing() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

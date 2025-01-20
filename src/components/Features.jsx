@@ -17,7 +17,7 @@ const Features = () => {
   };
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="Features" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[#2d1b55]/10"></div>
       <div className="container mx-auto px-4 relative">
         <div className="max-w-6xl mx-auto">

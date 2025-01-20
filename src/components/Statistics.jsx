@@ -17,7 +17,7 @@ const Statistics = () => {
   };
 
   return (
-    <section className="py-24 relative">
+    <section id="Statistics" className="py-24 relative">
       <div className="absolute inset-0 bg-[#2d1b55]/10 backdrop-blur-3xl"></div>
       <div className="container mx-auto px-4 relative">
         <div className="flex flex-col gap-12">
