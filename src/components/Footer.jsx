@@ -28,24 +28,26 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#2d1b55]/10 text-gray-400 py-12">
+    <footer className="bg-[#2d1b55]/10 text-gray-400 py-8 md:py-12">
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto px-6"
+        className="max-w-6xl mx-auto px-4 md:px-6"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <motion.div variants={item} className="space-y-6">
-            <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <motion.div variants={item} className="space-y-4 md:space-y-6">
+            <div className="space-y-3 md:space-y-4">
               <p className="text-sm">Managed by</p>
-              <h1 className="font-[Orbitron] text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] to-[#2d1b55]">
-                OCULUS
-              </h1>
+              <img
+                src="/logo.png"
+                alt=""
+                className="h-12 w-36 md:h-16 md:w-44"
+              />
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 md:space-x-4">
               <motion.a
                 target="_blank"
                 whileHover={{ scale: 1.1 }}
@@ -85,14 +87,14 @@ const Footer = () => {
 
           <div></div>
 
-          <motion.div variants={item}>
-            <h3 className="text-white font-medium mb-4">Oculus AI</h3>
-            <ul className="space-y-3">
+          <motion.div variants={item} className="mt-4 md:mt-0">
+            <h3 className="text-white font-medium mb-3 md:mb-4">Oculus AI</h3>
+            <ul className="space-y-2 md:space-y-3">
               <li>
                 <a
                   target="_blank"
                   href={Links.documentation}
-                  className="hover:text-[#00f2ff] transition-colors"
+                  className="hover:text-[#00f2ff] transition-colors text-sm md:text-base"
                 >
                   Documentation
                 </a>
@@ -101,7 +103,7 @@ const Footer = () => {
                 <a
                   target="_blank"
                   href={Links.chart}
-                  className="hover:text-[#00f2ff] transition-colors"
+                  className="hover:text-[#00f2ff] transition-colors text-sm md:text-base"
                 >
                   Chart
                 </a>
@@ -110,7 +112,7 @@ const Footer = () => {
                 <a
                   target="_blank"
                   href={Links.chart}
-                  className="hover:text-[#00f2ff] transition-colors"
+                  className="hover:text-[#00f2ff] transition-colors text-sm md:text-base"
                 >
                   Contract
                 </a>
@@ -118,14 +120,16 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          <motion.div variants={item}>
-            <h3 className="text-white font-medium mb-4">GET CONNECTED</h3>
-            <ul className="space-y-3">
+          <motion.div variants={item} className="mt-4 md:mt-0">
+            <h3 className="text-white font-medium mb-3 md:mb-4">
+              GET CONNECTED
+            </h3>
+            <ul className="space-y-2 md:space-y-3">
               <li>
                 <a
                   href="#"
                   target="_blank"
-                  className="hover:text-[#00f2ff] transition-colors"
+                  className="hover:text-[#00f2ff] transition-colors text-sm md:text-base"
                 >
                   Blog
                 </a>
@@ -134,7 +138,7 @@ const Footer = () => {
                 <a
                   href="#"
                   target="_blank"
-                  className="hover:text-[#00f2ff] transition-colors"
+                  className="hover:text-[#00f2ff] transition-colors text-sm md:text-base"
                 >
                   Newsletter
                 </a>
@@ -142,19 +146,19 @@ const Footer = () => {
               <li>
                 <a
                   href={Links.twitter}
-                  className="hover:text-[#00f2ff] transition-colors"
+                  className="hover:text-[#00f2ff] transition-colors text-sm md:text-base"
                 >
                   Twitter
                 </a>
               </li>
             </ul>
 
-            <div className="mt-8">
+            <div className="mt-6 md:mt-8">
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center space-x-2 text-gray-400 hover:text-[#00f2ff] transition-colors"
+                className="flex items-center space-x-2 text-gray-400 hover:text-[#00f2ff] transition-colors text-sm md:text-base"
               >
-                <FaGlobe className="w-5 h-5" />
+                <FaGlobe className="w-4 h-4 md:w-5 md:h-5" />
                 <span>EN</span>
               </motion.button>
             </div>

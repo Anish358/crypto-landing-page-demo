@@ -1,42 +1,54 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const Links = {
-  detailsButton: "https://docs.oculus.bot/oculusbot",
+  ethereumBot: "https://docs.oculus.bot/ethereum",
+  solonaBot: "https://docs.oculus.bot/solona",
 };
 
 const cards = [
   {
     id: 1,
-    bot: "/oculus-pro.png",
-    text: "Pro Bot",
+    bot: "/oculus-basic.png",
+    title: "BASIC BOT",
+    description:
+      "Entry-level trading automation with smart contract analysis and basic cross-chain monitoring capabilities",
+    features: "FOUNDATIONAL RECONNAISSANCE",
+    tagline: "START YOUR JOURNEY WITH BASIC",
     bgColor: "bg-[#110A2B]",
   },
   {
     id: 2,
-    bot: "/oculus-gold.png",
-    text: "Gold Bot",
+    bot: "/oculus-pro.png",
+    title: "PRO BOT",
+    description:
+      "Advanced trading tools with real-time market analysis and automated cross-chain execution",
+    features: "ENHANCED RECONNAISSANCE",
+    tagline: "ELEVATE WITH PRO",
     bgColor: "bg-[#110A2B]",
   },
   {
     id: 3,
-    bot: "/oculus-premium.png",
-    text: "Premium Bot",
+    bot: "/oculus-gold.png",
+    title: "GOLD BOT",
+    description:
+      "Premium suite with AI-powered insights and priority execution across multiple chains",
+    features: "SUPREME RECONNAISSANCE",
+    tagline: "DOMINATE WITH GOLD",
     bgColor: "bg-[#110A2B]",
   },
 ];
 
-function StackedCards() {
+function StackedCards2() {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const stackAreaRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (!stackAreaRef.current) return;
-
       const distance = window.innerHeight * 0.5;
       const topVal = stackAreaRef.current.getBoundingClientRect().top;
       const index = Math.floor(-1 * (topVal / distance + 1));
-
       setActiveCardIndex(Math.min(Math.max(index, 0), cards.length - 1));
     };
 
@@ -44,39 +56,60 @@ function StackedCards() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const activeCard = cards[activeCardIndex];
+
   return (
     <section
       id="Bots"
       ref={stackAreaRef}
-      className="w-full h-[300vh] relative bg-[#2d1b55]/10 flex"
+      className="w-full h-[300vh] relative bg-[#2d1b55]/10 flex flex-col md:flex-row"
     >
-      <div className="h-screen sticky top-0 left-0 basis-1/2 flex items-center justify-center gap-4 flex-col">
-        <h1 className="w-[420px] text-[84px] font-bold leading-[88px] font-poppins">
-          What we Offer
-        </h1>
-        <div className="w-[430px] font-poppins text-sm mt-8">
-          <p className="font-semibold text-xl text-gray-400">
-            Next-generation bot for automated cross-chain reconnaissance and
-            trading that seamlessly bridges both Ethereum and Solana, delivering
-            unmatched insights and strategic power
+      <div className="h-screen sticky top-0 w-full md:basis-1/2 flex items-center justify-center gap-4 flex-col px-4 md:px-0">
+        <motion.div
+          initial={{ opacity: 0, x: 0 }}
+          animate={{ opacity: 1, x: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-xl mb-8 md:mb-0 text-center md:text-left"
+        >
+          <h1 className="text-3xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r text-white">
+            {activeCard.title}
+          </h1>
+          <p className="text-lg md:text-2xl text-[#00f2ff] mb-6 md:mb-8 tracking-wide">
+            {activeCard.features}
           </p>
-          <p className="text-lg md:text-xl text-gray-400 py-6">
-            CA: 0xB90dC272EFB78740d9ab15653FADCcf061E2079c
+          <p className="text-base md:text-xl text-gray-400 mb-6 md:mb-8">
+            {activeCard.tagline} WITH{" "}
+            <span className="text-[#00f2ff]">$OCU</span>
           </p>
-          <button className="font-bold text-lg mt-5 px-8 py-4 bg-[#00f2ff]/20 hover:bg-[#00f2ff]/30 text-white rounded-full font-poppins cursor-pointer transition-colors duration-300">
-            <a href={Links.detailsButton}>See More Details</a>
-          </button>
-        </div>
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <button className="relative group bg-[#2d1b55]/80 text-white font-bold py-2 md:py-3 px-6 md:px-8 rounded-lg text-base md:text-lg tracking-wider backdrop-blur-sm w-full">
+              <span className="relative z-10">
+                <a target="_blank" href={Links.ethereumBot}>
+                  ETHEREUM BOT
+                </a>
+              </span>
+              <div className="absolute inset-0 bg-[#00f2ff] opacity-0 group-hover:opacity-20 blur-lg rounded-lg transition-all duration-300"></div>
+            </button>
+            <button className="relative group bg-[#00f2ff]/20 text-white font-bold py-2 md:py-3 px-6 md:px-8 rounded-lg text-base md:text-lg tracking-wider backdrop-blur-sm w-full">
+              <span className="relative z-10">
+                <a target="_blank" href={Links.solonaBot}>
+                  SOLONA BOT
+                </a>
+              </span>
+              <div className="absolute inset-0 bg-[#00f2ff] opacity-0 group-hover:opacity-20 blur-lg rounded-lg transition-all duration-300"></div>
+            </button>
+          </div>
+        </motion.div>
       </div>
 
-      <div className="h-screen sticky top-0 basis-1/2">
+      <div className="h-screen sticky top-0 w-full md:basis-1/2">
         {cards.map((card, index) => (
           <div
             key={card.id}
             className={`
-              w-[600px] h-[600px] rounded-[25px] mb-2.5 absolute 
-              top-[calc(50%-300px)] left-[calc(50%-350px)]
-              transition-all duration-700 ease-in-out p-9
+              w-[280px] h-[280px] md:w-[600px] md:h-[600px] rounded-[25px] mb-2.5 absolute 
+              top-[calc(50%-140px)] md:top-[calc(50%-300px)] left-[calc(50%-140px)] md:left-[calc(50%-350px)]
+              transition-all duration-700 ease-in-out p-4 md:p-9
               flex justify-between flex-col items-center
               ${index < activeCardIndex ? "opacity-0 translate-y-[-100vh]" : ""}
               ${index > activeCardIndex ? "opacity-0" : "opacity-100"}
@@ -87,7 +120,7 @@ function StackedCards() {
             }}
           >
             <div className="font-poppins text-xl font-bold text-white">
-              <img src={card.bot} alt="" className="w-full" />
+              <img src={card.bot} alt={card.title} className="w-full" />
             </div>
           </div>
         ))}
@@ -96,4 +129,4 @@ function StackedCards() {
   );
 }
 
-export default StackedCards;
+export default StackedCards2;

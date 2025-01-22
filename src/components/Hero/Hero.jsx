@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section
       id="Hero"
-      className="relative min-h-screen bg-[#2d1b55]/10 flex items-center overflow-hidden"
+      className="relative min-h-screen bg-[#2d1b55]/10 flex items-center overflow-hidden px-4 sm:px-0"
     >
       <motion.div
         initial={{ opacity: 0, x: -100, y: -100 }}
@@ -29,37 +29,36 @@ const Hero = () => {
         />
       </motion.div>
 
-      <div className="container px-4 relative z-10 flex flex-col md:flex-row mx-auto items-center justify-between">
+      <div className="container relative z-10 flex flex-col md:flex-row mx-auto items-center justify-between">
         <motion.div
           initial={{ opacity: 0, x: 0 }}
           animate={{ opacity: 1, x: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-xl mb-8 md:mb-0"
+          className="max-w-xl mb-8 md:mb-0 text-center md:text-left"
         >
-          <h1 className="font-[Orbitron] text-4xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r text-white">
             OCULUS
           </h1>
-          <p className="font-[Share+Tech+Mono] text-xl md:text-2xl text-[#00f2ff] mb-8 tracking-wide">
+          <p className="text-lg sm:text-xl md:text-2xl text-[#00f2ff] mb-6 md:mb-8 tracking-wide">
             AUTONOMOUS RECONNAISSANCE
           </p>
-          <p className="text-lg md:text-xl text-gray-400 mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
             APE THE BEST OF BOTH WORLDS THROUGH AI WITH{" "}
             <span className="text-[#00f2ff]">$OCU</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <button className="relative group bg-[#2d1b55]/80 text-white font-bold py-3 px-8 rounded-lg text-lg tracking-wider backdrop-blur-sm w-full sm:w-auto">
+            <button className="relative group bg-[#2d1b55]/80 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg text-base sm:text-lg tracking-wider backdrop-blur-sm w-full sm:w-auto">
               <span className="relative z-10">
-                {" "}
                 <a target="_blank" href={Links.ethereumBot}>
-                  ETHEREUM BOT{" "}
+                  ETHEREUM BOT
                 </a>
               </span>
               <div className="absolute inset-0 bg-[#00f2ff] opacity-0 group-hover:opacity-20 blur-lg rounded-lg transition-all duration-300"></div>
             </button>
-            <button className="relative group bg-[#00f2ff]/20 text-white font-bold py-3 px-8 rounded-lg text-lg tracking-wider backdrop-blur-sm w-full sm:w-auto">
+            <button className="relative group bg-[#00f2ff]/20 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg text-base sm:text-lg tracking-wider backdrop-blur-sm w-full sm:w-auto">
               <span className="relative z-10">
                 <a target="_blank" href={Links.solonaBot}>
-                  SOLONA BOT{" "}
+                  SOLONA BOT
                 </a>
               </span>
               <div className="absolute inset-0 bg-[#00f2ff] opacity-0 group-hover:opacity-20 blur-lg rounded-lg transition-all duration-300"></div>
@@ -71,7 +70,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative w-full md:w-[900px] h-[500px] md:h-[900px] md:mr-[-100px]"
+          className="relative w-full md:w-[900px] h-[400px] sm:h-[500px] md:h-[900px] md:mr-[-100px]"
         >
           <img
             src={CONFIG.artwork}
