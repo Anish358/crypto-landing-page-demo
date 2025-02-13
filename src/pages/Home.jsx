@@ -16,10 +16,10 @@ const Home = () => {
       <Navbar />
 
       <Hero />
-      <Hero2 />
-      <Hero3 />
+      {/* <Hero2 />
+      <Hero3 /> */}
       <StackedCards />
-      <StackedCards2 />
+      {/* <StackedCards2 /> */}
       <Features />
       <Pricing />
       <Statistics />
